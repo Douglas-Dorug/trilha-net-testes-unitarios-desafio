@@ -50,6 +50,21 @@ public class ValidacoesListaTests
         Assert.False(resultado);
     }
 
+
+    [Fact]
+    public void DeveConterONumero10NaLista()
+    {
+        // Arrange
+        var lista = new List<int> { 5, -1, -8, 9, 10 };
+        var numeroParaProcurar = 10;
+
+        // Act
+        bool resultado = _validacoes.ListaContemDeterminadoNumero(lista,numeroParaProcurar); 
+        
+        // Assert
+        Assert.True(resultado);
+    }
+
     [Fact]
     public void DeveMultiplicarOsElementosDaListaPor2()
     {
@@ -82,6 +97,20 @@ public class ValidacoesListaTests
     }
 
     [Fact]
+    public void DeveRetornar0ComoMaiorNumeroDaLista()
+    {
+        //TODO: Implementar método de teste
+
+        // Arrange
+        var lista = new List<int> { -5, -1, -8, -9, 0 };
+
+        // Act
+        int resultado = _validacoes.RetornarMaiorNumeroLista(lista);
+        // Assert
+        Assert.Equal(0, resultado);
+    }
+
+    [Fact]
     public void DeveRetornarOitoNegativoComoMenorNumeroDaLista()
     {
         //TODO: Implementar método de teste
@@ -94,5 +123,20 @@ public class ValidacoesListaTests
 
         // Assert
         Assert.Equal(-8, resultado);
+    }
+
+    [Fact]
+    public void DeveRetornarDoisComoMenorNumeroDaLista()
+    {
+        //TODO: Implementar método de teste
+
+        // Arrange
+        var lista = new List<int> { 5, 2, 8, 9, 11, 500 };
+
+        // Act
+        var resultado = _validacoes.RetornarMenorNumeroLista(lista);
+
+        // Assert
+        Assert.Equal(2, resultado);
     }
 }
